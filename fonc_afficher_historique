@@ -1,0 +1,87 @@
+void afficher_hist(struct node1 *q1){
+    struct node1 *aux;
+    int a,m,j,n;
+    if (q1==NULL){
+        printf("L'historique est vide \n");
+    }else{
+        printf("(1)Historique d'un jour\n(2)Historique d'un mois\n(3)Historique d'un an\nDonner votre choix\n");
+        scanf("%i",&n);
+        while(n<1 || n>3){
+            printf("choisissez un choix entre 1 et 3\n");
+            scanf("%i",&n);
+        }
+        if(n==1){
+            printf("donner la date pour la quelle vous voulez avoir l'historique \nAnnee:\n");
+    scanf("%d",&a);
+    while(a<0){
+        printf("Donner une Annee positive:\n");
+        scanf("%i",&a);
+    }
+     printf("Mois:\n");
+    scanf("%d",&m);
+    while(m<0 || m>12){
+        printf("Donner un mois entre 1 et 12 :\n");
+        scanf("%i",&m);
+    }
+     printf("Jour:\n");
+    scanf("%d",&j);
+    while(j<0 || j>31){
+        printf("Donner un jour entre 1 et 31 :\n");
+        scanf("%i",&j);
+    }
+        aux=q1;
+       while( aux!=NULL){
+         if(aux->val.jour==j && aux->val.mois==m && aux->val.annee==a){
+             printf("Jour %i-%i-%i : %s de %d pieces du produit %s de reference %li et de prix %.2f\n",aux->val.jour,aux->val.mois,aux->val.annee,aux->val.type,aux->val.nbr,aux->val.nom,aux->val.ref,aux->val.prix);
+             aux=aux->suiv;
+         }else{
+        aux=aux->suiv;
+        } 
+        }
+        }else if(n==2) {
+            printf("Donner la date pour la quelle vous voulez avoir l'historique \nAnnee:\n");
+    scanf("%d",&a);
+    while(a<0){
+        printf("Donner une Annee positive:\n");
+        scanf("%i",&a);
+    }
+     printf("Mois:\n");
+    scanf("%d",&m);
+    while(m<0 || m>12){
+        printf("Donner un mois entre 1 et 12 :\n");
+        scanf("%i",&m);
+    }
+        aux=q1;
+       while( aux!=NULL){
+         if( aux->val.mois==m && aux->val.annee==a){
+             printf("Jour %i-%i-%i : %s de %d pieces du produit %s de reference %li et de prix %.2f\n",aux->val.jour,aux->val.mois,aux->val.annee,aux->val.type,aux->val.nbr,aux->val.nom,aux->val.ref,aux->val.prix);
+             aux=aux->suiv;
+         }else{
+             
+    aux=aux->suiv;
+
+    } 
+}
+        }else if(n==3) {
+            printf("donner la date pour la quelle vous voulez avoir l'historique \nAnnee:\n");
+    scanf("%d",&a);
+    while(a<0){
+        printf("Donner une Annee positive:\n");
+        scanf("%i",&a);
+    }
+     
+        aux=q1;
+       while( aux!=NULL){
+         if(aux->val.annee==a){
+             printf("Jour %i-%i-%i : %s de %d pieces du produit %s de reference %li et de prix %.2f\n",aux->val.jour,aux->val.mois,aux->val.annee,aux->val.type,aux->val.nbr,aux->val.nom,aux->val.ref,aux->val.prix);
+             aux=aux->suiv;
+         }else{
+             
+    aux=aux->suiv;
+
+        } 
+        }
+        }
+    
+    }
+    }

@@ -1,0 +1,56 @@
+void ajout_nouveau_produit( struct node **q){
+    struct node *temp, *r,*aux; 
+    produit p;
+    temp = *q;
+    int exist=0;
+    aux= *q;
+    printf("Donner le nom : \n");
+    scanf("%s", &p.nom);
+    printf("Donner la reference : \n");
+    scanf("%ld", &p.ref);
+    while(p.ref<0){
+        printf("la reference doit etre positive");
+        scanf("%ld", &p.ref);
+    }
+    while(aux!=NULL && exist==0){
+        if(aux->val.ref==p.ref){
+            exist=1;
+        }
+        aux=aux->suiv;
+    }
+    if(exist==1){
+        printf("ce produit existe deja dans le stock \n");
+    }else {
+        printf("Donner le prix : \n");
+    scanf("%f", &p.prix);
+    while(p.prix<0){
+        printf("le prix doit etre positif");
+        scanf("%f", &p.prix);
+    }
+    printf("Combien de pieces voulez-vous ajouter: \n");
+    scanf("%d", &p.nbr);
+    while(p.nbr<0){
+        printf("le nombre doit etre positive");
+        scanf("%d", &p.nbr);
+    }
+
+    if(*q == NULL){
+        temp = malloc(sizeof(struct node));
+        temp -> val = p;
+        temp -> suiv = NULL;
+        *q = temp;
+    }
+    else{
+        temp = *q;
+        while( temp -> suiv!= NULL)
+            temp = temp -> suiv;
+        r = malloc(sizeof(struct node));
+        r -> val = p;
+        r -> suiv = NULL;
+        temp -> suiv = r;
+    }
+    }
+     
+    
+    
+}

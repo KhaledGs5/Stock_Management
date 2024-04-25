@@ -1,0 +1,12 @@
+void afficher(struct node *q){
+    struct node *aux;
+    if (q==NULL){
+        printf("Le stock est vide \n");
+    }else{
+        aux=q;
+      while(aux != NULL){
+        printf("Le produit %s de reference %li est de  %.2f  dinars, il y'a %d pieces dans le stock.\n",aux->val.nom,aux->val.ref, aux->val.prix,aux->val.nbr);
+        aux = aux->suiv;
+    }
+    }
+    }

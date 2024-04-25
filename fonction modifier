@@ -1,0 +1,33 @@
+void modifier (struct node *q){
+    struct node *aux; 
+    produit p;
+    aux=q;
+    int modif;
+    printf("Donner la reference : \n");
+    scanf("%ld", &p.ref);
+    while(p.ref<0){
+        printf("la reference doit etre positive");
+        scanf("%ld", &p.ref);
+    }
+    while((aux != NULL) && ((aux->val.ref)!=(p.ref))){
+    aux=aux->suiv;
+    } 
+    if(aux == NULL){
+        printf("\nCe produit n'exite pas \n");
+    }else{
+        printf("(1) Modifier le nom\n(2) Modifier le prix\n");
+        scanf("%i",&modif);
+        while (modif!=1 && modif!=2){
+            printf("Choisissez soit (1) ou (2)\n");
+            scanf("%i",&modif);
+        }
+    if (modif==2){
+        printf("donner le nouveau prix \n");
+        scanf("%f",&(aux->val.prix));
+    }else if (modif==1){
+        printf("donner le nouveau nom \n");
+        scanf("%s",&(aux->val.nom));
+    }
+    }
+    printf("\nOperation effectuee avec succees \n" );
+}

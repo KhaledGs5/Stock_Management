@@ -1,0 +1,57 @@
+void ajout_arch(struct node1 **q1,struct node *q,int x,int n){
+    struct node1 *temp1, *r; 
+    struct node *aux ;
+    operation op;
+    temp1 = *q1;
+    aux=q;
+    char entre[]="entree";
+    
+    
+    printf("Donner la date \nAnnee:\n");
+    scanf("%i",&op.annee);
+    while(op.annee<0){
+        printf("Donner une Annee positive:\n");
+        scanf("%i",&op.annee);
+    }
+     printf("Mois:\n");
+    scanf("%i",&op.mois);
+    while(op.mois<0 || op.mois>12){
+        printf("Donner un mois entre 1 et 12 :\n");
+        scanf("%i",&op.mois);
+    }
+     printf("Jour:\n");
+    scanf("%i",&op.jour);
+    while(op.jour<0 || op.jour>31){
+        printf("Donner un jour entre 1 et 31 :\n");
+        scanf("%i",&op.jour);
+    }
+    
+    
+    strcpy(op.type,entre);
+    
+    while( aux -> suiv!= NULL)
+            aux = aux -> suiv;
+    strcpy(op.nom,aux->val.nom);
+    op.prix=aux->val.prix;
+    op.ref=aux->val.ref;
+    op.nbr=n;
+    
+    
+    if(*q1 == NULL){
+        temp1 = malloc(sizeof(struct node1));
+        temp1 -> val = op;
+        temp1 -> suiv = NULL;
+        *q1 = temp1;
+        
+    }
+    else{
+        temp1 = *q1;
+        while( temp1 -> suiv!= NULL)
+            temp1 = temp1 -> suiv;
+        r = malloc(sizeof(struct node1));
+        r -> val = op;
+        r -> suiv = NULL;
+        temp1 -> suiv = r;
+    } 
+    
+}

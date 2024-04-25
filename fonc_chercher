@@ -1,0 +1,19 @@
+void chercher (struct node *q){
+    struct node *aux;
+    aux=q;
+    long ref;
+    printf("Donner la reference du produit \n");
+    scanf("%ld", &ref);
+    while(ref<0){
+        printf("la reference doit etre positive");
+        scanf("%ld", &ref);
+    }
+    while((aux!= NULL) && (aux->val.ref != ref)){
+        aux=aux->suiv;
+    }
+    if (aux!=NULL){
+        printf("On a %d pieces de ce produit dans le stock\n",aux->val.nbr);
+    }else{
+        printf("Ce produit n'existe pas dans le stock\n");
+    }
+}

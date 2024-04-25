@@ -1,0 +1,4 @@
+void menu(){
+  printf("1)Creer un nouveau produit \n2)Ajouter un produit \n3)Chercher un produit dans le stock\n4)Modifier un produit\n5)Retirer un produit du stock \n6)Afficher le stock\n7)Afficher l'historique\n8)quitter le programme\n");
+ 
+}
